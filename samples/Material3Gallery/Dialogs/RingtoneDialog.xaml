@@ -1,0 +1,15 @@
+<m3:AlertDialog xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+                x:Class="Material3Gallery.RingtoneDialog" Headline="Phone ringtone" Width="360">
+  <StackPanel>
+    <m3:Divider Margin="0,0,0,8" />
+    <m3:RadioButton GroupName="ringtone" Text="Callisto" />
+    <m3:RadioButton GroupName="ringtone" Text="Ganymede" IsChecked="True" />
+    <m3:RadioButton GroupName="ringtone" Text="Luna" />
+    <m3:RadioButton GroupName="ringtone" Text="Oberon" />
+    <m3:Divider Margin="0,8,0,0" />
+  </StackPanel>
+  <m3:AlertDialog.Actions>
+    <m3:TextButton Text="Cancel" IsCancel="True" />
+    <m3:TextButton Text="OK" IsDefault="True" Click="OnOk" />
+  </m3:AlertDialog.Actions>
+</m3:AlertDialog>

@@ -1,0 +1,126 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.InputsPage" x:DataType="local:GalleryViewModel">
+  <Grid Padding="24" ColumnDefinitions="*,*" ColumnSpacing="24">
+
+    <StackPanel Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Text fields" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Filled and outlined, with a floating label, icons, a prefix or suffix, supporting text, a counter and an error state." />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="16" RowSpacing="16" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+            <m3:TextField Label="Name" Text="{Bind Name}" LeadingIcon="Person" SupportingText="As it appears on your ID" />
+            <m3:TextField Grid.Column="1" Variant="Outlined" Label="Name" Text="{Bind Name}" LeadingIcon="Person" SupportingText="As it appears on your ID" />
+
+            <m3:TextField Grid.Row="1" Label="Email" Text="{Bind Email}" TrailingIcon="Cancel" TrailingIconClick="{Bind ClearEmail}" />
+            <m3:TextField Grid.Row="1" Grid.Column="1" Variant="Outlined" Label="Email" Text="{Bind Email}" TrailingIcon="Cancel" TrailingIconClick="{Bind ClearEmail}" />
+
+            <m3:TextField Grid.Row="2" Label="Password" IsPassword="True" Text="hunter2" />
+            <m3:TextField Grid.Row="2" Grid.Column="1" Variant="Outlined" Label="Amount" Prefix="$" Suffix="USD" Text="120" />
+
+            <m3:TextField Grid.Row="3" Label="Username" Text="ada" IsError="True" ErrorText="That name is taken" TrailingIcon="Error" />
+            <m3:TextField Grid.Row="3" Grid.Column="1" Variant="Outlined" Label="Username" Text="ada" IsError="True" ErrorText="That name is taken" TrailingIcon="Error" />
+
+            <m3:TextField Grid.Row="4" Label="Bio" Placeholder="A line about you" MaxLength="40" />
+            <m3:TextField Grid.Row="4" Grid.Column="1" Variant="Outlined" Label="Bio" Placeholder="A line about you" MaxLength="40" />
+
+            <m3:TextField Grid.Row="5" Label="Disabled" Text="Can't touch this" IsEnabled="False" />
+            <m3:TextField Grid.Row="5" Grid.Column="1" Variant="Outlined" Label="Disabled" Text="Can't touch this" IsEnabled="False" />
+          </Grid>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Menus and search" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="An exposed dropdown menu picks one option; the search bar takes a query with trailing actions." />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+            <m3:DropdownField Label="Country" LeadingIcon="Language" SelectedIndex="1">
+              <m3:MenuItem Text="Canada" />
+              <m3:MenuItem Text="Japan" />
+              <m3:MenuItem Text="Korea" />
+              <m3:MenuItem Text="Norway" />
+              <m3:MenuItem Text="United Kingdom" />
+            </m3:DropdownField>
+            <m3:DropdownField Grid.Column="1" Variant="Outlined" Label="Delivery" SupportingText="Arrives in 2 to 5 days">
+              <m3:MenuItem Text="Standard" TrailingText="Free" />
+              <m3:MenuItem Text="Express" TrailingText="$9" />
+              <m3:MenuItem Text="Overnight" TrailingText="$25" />
+            </m3:DropdownField>
+          </Grid>
+          <m3:SearchBar Placeholder="Search messages" LeadingIcon="Menu">
+            <m3:IconButton Icon="Mic" PlainTooltip="Voice search" />
+            <m3:Avatar Text="AL" Diameter="30" />
+          </m3:SearchBar>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1" Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="8">
+          <m3:Text TypeStyle="TitleMedium" Text="Checkboxes" />
+          <m3:Checkbox Text="All topics" IsChecked="{Bind AllTopics}" />
+          <StackPanel Spacing="0" Margin="32,0,0,0">
+            <m3:Checkbox x:Name="newsBox" Text="News" IsChecked="True" />
+            <m3:Checkbox x:Name="sportsBox" Text="Sports" />
+            <m3:Checkbox x:Name="musicBox" Text="Music" IsChecked="True" />
+          </StackPanel>
+          <WrapPanel Spacing="8">
+            <m3:Checkbox Text="Error" IsError="True" />
+            <m3:Checkbox Text="Error, checked" IsError="True" IsChecked="True" />
+            <m3:Checkbox Text="Disabled" IsEnabled="False" />
+            <m3:Checkbox Text="Disabled, checked" IsEnabled="False" IsChecked="True" />
+          </WrapPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="8">
+          <m3:Text TypeStyle="TitleMedium" Text="Radio buttons" />
+          <WrapPanel Spacing="8">
+            <m3:RadioButton GroupName="size" Text="Small" />
+            <m3:RadioButton GroupName="size" Text="Medium" IsChecked="True" />
+            <m3:RadioButton GroupName="size" Text="Large" />
+            <m3:RadioButton Text="Disabled" IsEnabled="False" />
+            <m3:RadioButton Text="Disabled, on" IsEnabled="False" IsChecked="True" />
+          </WrapPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="12">
+          <m3:Text TypeStyle="TitleMedium" Text="Switches" />
+          <StackPanel Orientation="Horizontal" Spacing="24">
+            <m3:Switch Text="Notifications" IsChecked="{Bind Notifications}" />
+            <m3:Switch Text="Wi-Fi" ShowIcons="True" IsChecked="True" />
+            <m3:Switch Text="Bluetooth" ShowIcons="True" ShowOffIcon="True" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="24">
+            <m3:Switch Text="Disabled" IsEnabled="False" />
+            <m3:Switch Text="Disabled, on" IsEnabled="False" IsChecked="True" ShowIcons="True" />
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="12">
+          <m3:Text TypeStyle="TitleMedium" Text="Sliders" />
+          <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+            <m3:Icon Symbol="VolumeUp" ColorRole="OnSurfaceVariant" VerticalAlignment="Center" />
+            <m3:Slider Grid.Column="1" Value="{Bind Volume}" />
+            <m3:Text Grid.Column="2" Width="40" VerticalAlignment="Center" Text="{Bind Volume, StringFormat='{0:0}'}" />
+          </Grid>
+          <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+            <m3:Icon Symbol="LightMode" ColorRole="OnSurfaceVariant" VerticalAlignment="Center" />
+            <m3:Slider Grid.Column="1" Value="{Bind Brightness}" StepSize="10" ShowTicks="True" />
+            <m3:Text Grid.Column="2" Width="40" VerticalAlignment="Center" Text="{Bind Brightness, StringFormat='{0:0}'}" />
+          </Grid>
+          <m3:Slider Value="30" IsEnabled="False" />
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+  </Grid>
+</UserControl>

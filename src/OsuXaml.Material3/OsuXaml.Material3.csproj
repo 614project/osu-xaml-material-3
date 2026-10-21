@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>OsuXaml.Material3</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ppy.osu.Framework" Version="$(OsuFrameworkVersion)" />
+    <ProjectReference Include="$(OsuXamlDirectory)src/OsuXaml/OsuXaml.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Roboto Medium and Material Symbols as osu!framework bitmap fonts (tools/fonts makes them). -->
+    <EmbeddedResource Include="Resources\**\*.bin;Resources\**\*.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="OsuXaml.Material3.Tests" />
+  </ItemGroup>
+</Project>

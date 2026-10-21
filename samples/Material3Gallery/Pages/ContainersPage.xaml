@@ -1,0 +1,112 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.ContainersPage" x:DataType="local:GalleryViewModel">
+  <Grid Padding="24" ColumnDefinitions="*,*" ColumnSpacing="24">
+
+    <StackPanel Spacing="24">
+      <m3:Text TypeStyle="TitleMedium" Text="Cards" />
+      <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16">
+        <m3:Card Variant="Elevated" Click="OnCardClick">
+          <StackPanel Spacing="8">
+            <m3:Icon Symbol="Landscape" ColorRole="Primary" />
+            <m3:Text TypeStyle="TitleMedium" Text="Elevated" />
+            <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap" Text="Lifted by a shadow. Click it: it rises on hover." />
+          </StackPanel>
+        </m3:Card>
+        <m3:Card Grid.Column="1" Variant="Filled" Click="OnCardClick">
+          <StackPanel Spacing="8">
+            <m3:Icon Symbol="Forest" ColorRole="Primary" />
+            <m3:Text TypeStyle="TitleMedium" Text="Filled" />
+            <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap" Text="A highest-container fill, for less emphasis." />
+          </StackPanel>
+        </m3:Card>
+        <m3:Card Grid.Column="2" Variant="Outlined" Click="OnCardClick">
+          <StackPanel Spacing="8">
+            <m3:Icon Symbol="Water" ColorRole="Primary" />
+            <m3:Text TypeStyle="TitleMedium" Text="Outlined" />
+            <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap" Text="A thin outline on the surface." />
+          </StackPanel>
+        </m3:Card>
+      </Grid>
+
+      <m3:Card Variant="Outlined" Padding="0">
+        <StackPanel>
+          <m3:Text TypeStyle="TitleMedium" Text="Lists" Margin="16,16,16,8" />
+          <m3:ListItem Headline="One line" LeadingIcon="Inbox" TrailingText="100+" Click="OnItemClick" />
+          <m3:ListItem Headline="Selected" LeadingIcon="Send" IsSelected="True" Click="OnItemClick" />
+          <m3:Divider />
+          <m3:ListItem Headline="Ada Lovelace" SupportingText="Notes on the Analytical Engine" Click="OnItemClick">
+            <m3:ListItem.Leading><m3:Avatar Text="AL" /></m3:ListItem.Leading>
+            <m3:ListItem.Trailing><m3:Checkbox IsChecked="True" /></m3:ListItem.Trailing>
+          </m3:ListItem>
+          <m3:ListItem Headline="Grace Hopper" SupportingText="Compilers, and a moth in the relay" Click="OnItemClick">
+            <m3:ListItem.Leading><m3:Avatar Text="GH" Role="TertiaryContainer" /></m3:ListItem.Leading>
+            <m3:ListItem.Trailing><m3:Switch /></m3:ListItem.Trailing>
+          </m3:ListItem>
+          <m3:Divider InsetStart="16" InsetEnd="16" />
+          <m3:ListItem Overline="Today, 9:41" Headline="Three lines"
+                       SupportingText="Supporting text that runs onto a second line when there is more of it than fits on one."
+                       LeadingIcon="Event" TrailingIcon="ChevronRight" Click="OnItemClick" />
+          <m3:ListItem Headline="Disabled" SupportingText="Doesn't react" LeadingIcon="Block" IsEnabled="False" />
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1" Spacing="24">
+      <m3:Card Variant="Outlined" Padding="0">
+        <StackPanel>
+          <m3:Text TypeStyle="TitleMedium" Text="Primary tabs" Margin="16,16,16,8" />
+          <m3:Tabs SelectedIndex="{Bind Tab}">
+            <m3:Tab Icon="Flight" Text="Flights">
+              <m3:Text Margin="16" TextWrapping="Wrap" Text="Each tab can carry content; the selected tab's content shows below the bar." />
+            </m3:Tab>
+            <m3:Tab Icon="Hotel" Text="Hotels" BadgeText="3">
+              <m3:Text Margin="16" Text="Three hotels match." />
+            </m3:Tab>
+            <m3:Tab Icon="Explore" Text="Explore">
+              <m3:Text Margin="16" Text="Nearby places." />
+            </m3:Tab>
+          </m3:Tabs>
+          <m3:Text TypeStyle="TitleMedium" Text="Secondary tabs" Margin="16,24,16,8" />
+          <m3:Tabs Variant="Secondary">
+            <m3:Tab Text="Overview" />
+            <m3:Tab Text="Specifications" />
+            <m3:Tab Text="Reviews" />
+          </m3:Tabs>
+          <Border Height="16" />
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Badges" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="A small dot or a count. Navigation items, tabs and drawer items place them on their icons." />
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <m3:Badge VerticalAlignment="Center" />
+            <m3:Badge Text="3" VerticalAlignment="Center" />
+            <m3:Badge Text="42" VerticalAlignment="Center" />
+            <m3:Badge Text="999+" VerticalAlignment="Center" />
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Dividers" />
+          <m3:Text ColorRole="OnSurfaceVariant" Text="Full width" />
+          <m3:Divider />
+          <m3:Text ColorRole="OnSurfaceVariant" Text="Inset" />
+          <m3:Divider InsetStart="16" InsetEnd="16" />
+          <StackPanel Orientation="Horizontal" Spacing="16" Height="40">
+            <m3:Text ColorRole="OnSurfaceVariant" Text="Vertical" VerticalAlignment="Center" />
+            <m3:Divider Orientation="Vertical" />
+            <m3:Text ColorRole="OnSurfaceVariant" Text="between" VerticalAlignment="Center" />
+            <m3:Divider Orientation="Vertical" />
+            <m3:Text ColorRole="OnSurfaceVariant" Text="items" VerticalAlignment="Center" />
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+  </Grid>
+</UserControl>

@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <!-- The same osu!framework as the osu-xaml submodule builds against (external/osu-xaml/Directory.Build.props). -->
+    <OsuFrameworkVersion>2026.1008.0</OsuFrameworkVersion>
+    <OsuXamlDirectory>$(MSBuildThisFileDirectory)external/osu-xaml/</OsuXamlDirectory>
+  </PropertyGroup>
+</Project>

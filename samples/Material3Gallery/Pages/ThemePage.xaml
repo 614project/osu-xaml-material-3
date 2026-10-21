@@ -1,0 +1,92 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.ThemePage" x:DataType="local:GalleryViewModel">
+  <StackPanel Padding="24" Spacing="24">
+
+    <m3:Card Variant="Filled">
+      <StackPanel Spacing="16">
+        <m3:Text TypeStyle="TitleMedium" Text="Dynamic colour" />
+        <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                 Text="The whole scheme comes from one seed colour through the HCT colour space, as Material You does. Pick a seed and a scheme variant." />
+        <m3:Switch Text="Dark theme" IsChecked="{Bind IsDark}" />
+        <m3:SegmentedButton SelectedIndex="{Bind SeedChoice}">
+          <m3:Segment Text="Baseline" />
+          <m3:Segment Text="Purple" />
+          <m3:Segment Text="Blue" />
+          <m3:Segment Text="Green" />
+          <m3:Segment Text="Red" />
+          <m3:Segment Text="Orange" />
+          <m3:Segment Text="Teal" />
+        </m3:SegmentedButton>
+        <m3:SegmentedButton SelectedIndex="{Bind Variant}">
+          <m3:Segment Text="Tonal spot" />
+          <m3:Segment Text="Neutral" />
+          <m3:Segment Text="Vibrant" />
+          <m3:Segment Text="Expressive" />
+          <m3:Segment Text="Monochrome" />
+        </m3:SegmentedButton>
+      </StackPanel>
+    </m3:Card>
+
+    <m3:Text TypeStyle="TitleMedium" Text="Colour roles" />
+    <StackPanel x:Name="swatches" Spacing="12" />
+
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="24">
+      <StackPanel Spacing="8">
+        <m3:Text TypeStyle="TitleMedium" Text="Type scale" Margin="0,0,0,8" />
+        <m3:Text TypeStyle="DisplayLarge" Text="Display large" />
+        <m3:Text TypeStyle="DisplayMedium" Text="Display medium" />
+        <m3:Text TypeStyle="DisplaySmall" Text="Display small" />
+        <m3:Text TypeStyle="HeadlineLarge" Text="Headline large" />
+        <m3:Text TypeStyle="HeadlineMedium" Text="Headline medium" />
+        <m3:Text TypeStyle="HeadlineSmall" Text="Headline small" />
+        <m3:Text TypeStyle="TitleLarge" Text="Title large" />
+        <m3:Text TypeStyle="TitleMedium" Text="Title medium" />
+        <m3:Text TypeStyle="TitleSmall" Text="Title small" />
+        <m3:Text TypeStyle="BodyLarge" Text="Body large: the quick brown fox jumps over the lazy dog" />
+        <m3:Text TypeStyle="BodyMedium" Text="Body medium: the quick brown fox jumps over the lazy dog" />
+        <m3:Text TypeStyle="BodySmall" Text="Body small: the quick brown fox jumps over the lazy dog" />
+        <m3:Text TypeStyle="LabelLarge" Text="Label large" />
+        <m3:Text TypeStyle="LabelMedium" Text="Label medium" />
+        <m3:Text TypeStyle="LabelSmall" Text="Label small" />
+      </StackPanel>
+
+      <StackPanel Grid.Column="1" Spacing="24">
+        <m3:Text TypeStyle="TitleMedium" Text="Shape" />
+        <WrapPanel Spacing="16">
+          <m3:Surface Role="PrimaryContainer" Shape="None" Width="88" Height="72" Padding="8"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="None" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="ExtraSmall" Width="88" Height="72" Padding="8"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Extra small" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="Small" Width="88" Height="72" Padding="8"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Small" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="Medium" Width="88" Height="72" Padding="8"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Medium" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="Large" Width="88" Height="72" Padding="8"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Large" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="ExtraLarge" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Extra large" /></m3:Surface>
+          <m3:Surface Role="PrimaryContainer" Shape="Full" Width="88" Height="72" Padding="20,26,0,0"><m3:Text TypeStyle="LabelMedium" ColorRole="OnPrimaryContainer" Text="Full" /></m3:Surface>
+        </WrapPanel>
+
+        <m3:Text TypeStyle="TitleMedium" Text="Elevation" />
+        <WrapPanel Spacing="24">
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="0" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 0" /></m3:Surface>
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="1" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 1" /></m3:Surface>
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="2" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 2" /></m3:Surface>
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="3" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 3" /></m3:Surface>
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="4" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 4" /></m3:Surface>
+          <m3:Surface Role="SurfaceContainerLow" Shape="Medium" Elevation="5" Width="88" Height="72" Padding="12"><m3:Text TypeStyle="LabelMedium" Text="Level 5" /></m3:Surface>
+        </WrapPanel>
+
+        <m3:Text TypeStyle="TitleMedium" Text="Nested theme" />
+        <m3:ThemeScope SeedColor="#006A6A" IsDark="True" Padding="16" CornerRadius="16">
+          <StackPanel Spacing="12">
+            <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                     Text="A ThemeScope with its own seed and brightness: everything inside follows it." />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <m3:FilledButton Text="Filled" />
+              <m3:OutlinedButton Text="Outlined" />
+              <m3:Switch IsChecked="True" />
+              <m3:Checkbox IsChecked="True" />
+            </StackPanel>
+          </StackPanel>
+        </m3:ThemeScope>
+      </StackPanel>
+    </Grid>
+  </StackPanel>
+</UserControl>

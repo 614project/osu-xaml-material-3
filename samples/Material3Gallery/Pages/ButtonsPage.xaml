@@ -1,0 +1,150 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.ButtonsPage" x:DataType="local:GalleryViewModel">
+  <Grid Padding="24" ColumnDefinitions="*,*" ColumnSpacing="24">
+
+    <StackPanel Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Common buttons" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Five levels of emphasis, from filled for the main action to text for the least important one." />
+          <WrapPanel Spacing="12">
+            <m3:FilledButton Text="Filled" Click="{Bind Click}" />
+            <m3:FilledTonalButton Text="Tonal" Click="{Bind Click}" />
+            <m3:ElevatedButton Text="Elevated" Click="{Bind Click}" />
+            <m3:OutlinedButton Text="Outlined" Click="{Bind Click}" />
+            <m3:TextButton Text="Text" Click="{Bind Click}" />
+          </WrapPanel>
+          <WrapPanel Spacing="12">
+            <m3:FilledButton Icon="Add" Text="Create" Click="{Bind Click}" />
+            <m3:FilledTonalButton Icon="Send" Text="Send" Click="{Bind Click}" />
+            <m3:ElevatedButton Icon="Download" Text="Save" Click="{Bind Click}" />
+            <m3:OutlinedButton Icon="Share" Text="Share" Click="{Bind Click}" />
+            <m3:TextButton Icon="OpenInNew" Text="Open" TrailingIcon="True" Click="{Bind Click}" />
+          </WrapPanel>
+          <WrapPanel Spacing="12">
+            <m3:FilledButton Text="Filled" IsEnabled="False" />
+            <m3:FilledTonalButton Text="Tonal" IsEnabled="False" />
+            <m3:ElevatedButton Text="Elevated" IsEnabled="False" />
+            <m3:OutlinedButton Text="Outlined" IsEnabled="False" />
+            <m3:TextButton Text="Text" IsEnabled="False" />
+          </WrapPanel>
+          <m3:Text TypeStyle="LabelLarge" ColorRole="Primary" Text="{Bind Clicks, StringFormat='Clicked {0} times'}" />
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Icon buttons" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Standard, filled, tonal and outlined. Toggle buttons fill their icon while selected." />
+          <WrapPanel Spacing="8">
+            <m3:IconButton Icon="Settings" PlainTooltip="Standard" />
+            <m3:IconButton Icon="Add" Variant="Filled" PlainTooltip="Filled" />
+            <m3:IconButton Icon="Edit" Variant="FilledTonal" PlainTooltip="Filled tonal" />
+            <m3:IconButton Icon="Delete" Variant="Outlined" PlainTooltip="Outlined" />
+            <m3:IconButton Icon="Settings" IsEnabled="False" />
+            <m3:IconButton Icon="Add" Variant="Filled" IsEnabled="False" />
+            <m3:IconButton Icon="Edit" Variant="FilledTonal" IsEnabled="False" />
+            <m3:IconButton Icon="Delete" Variant="Outlined" IsEnabled="False" />
+          </WrapPanel>
+          <WrapPanel Spacing="8">
+            <m3:IconButton Icon="Favorite" IsToggle="True" IsSelected="True" PlainTooltip="Favourite" />
+            <m3:IconButton Icon="Bookmark" Variant="Filled" IsToggle="True" PlainTooltip="Bookmark" />
+            <m3:IconButton Icon="Star" Variant="FilledTonal" IsToggle="True" IsSelected="True" PlainTooltip="Star" />
+            <m3:IconButton Icon="Notifications" Variant="Outlined" IsToggle="True" PlainTooltip="Notify me" />
+            <m3:IconButton Icon="VolumeUp" SelectedIcon="VolumeOff" Variant="Outlined" IsToggle="True" PlainTooltip="Mute" />
+          </WrapPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Chips" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Assist, filter, input and suggestion chips help people enter information, make selections and filter content." />
+          <WrapPanel Spacing="8">
+            <m3:AssistChip Icon="Event" Text="Add to calendar" />
+            <m3:AssistChip Icon="Directions" Text="Directions" Elevated="True" />
+            <m3:AssistChip Icon="Share" Text="Share" IsEnabled="False" />
+          </WrapPanel>
+          <WrapPanel Spacing="8">
+            <m3:FilterChip Text="Vegetarian" IsSelected="True" />
+            <m3:FilterChip Text="Gluten free" />
+            <m3:FilterChip Text="Open now" Icon="Schedule" />
+            <m3:FilterChip Text="Price" ShowDropdownIcon="True" />
+            <m3:FilterChip Text="Elevated" Elevated="True" />
+          </WrapPanel>
+          <WrapPanel Spacing="8">
+            <m3:InputChip x:Name="adaChip" Text="Ada Lovelace" Icon="Person" Removed="OnRemoveAda" />
+            <m3:InputChip x:Name="alanChip" Text="Alan Turing" Removed="OnRemoveAlan" />
+            <m3:InputChip Text="Selected" IsSelected="True" />
+            <m3:InputChip Text="Not removable" IsRemovable="False" />
+          </WrapPanel>
+          <WrapPanel Spacing="8">
+            <m3:SuggestionChip Text="Sounds good" />
+            <m3:SuggestionChip Text="See you there" />
+            <m3:SuggestionChip Icon="ThumbUp" Text="Like" />
+          </WrapPanel>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1" Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Floating action buttons" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Small, regular and large FABs in the four colour sets. Extended FABs add a label and can collapse while content scrolls." />
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <m3:Fab FabSize="Small" Icon="Edit" VerticalAlignment="Center" />
+            <m3:Fab Icon="Edit" VerticalAlignment="Center" />
+            <m3:Fab FabSize="Large" Icon="Edit" VerticalAlignment="Center" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <m3:Fab Icon="Add" Color="Surface" />
+            <m3:Fab Icon="Add" Color="Secondary" />
+            <m3:Fab Icon="Add" Color="Tertiary" />
+            <m3:Fab Icon="Add" Lowered="True" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <m3:ExtendedFab Icon="Edit" Text="Compose" Expanded="{Bind FabExpanded}" VerticalAlignment="Center" />
+            <m3:ExtendedFab Icon="Navigation" Text="Navigate" Color="Tertiary" VerticalAlignment="Center" />
+            <m3:TextButton Text="Collapse or expand" Click="{Bind ToggleFab}" VerticalAlignment="Center" />
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Segmented buttons" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Pick one option, or several, from two to five. Selected segments show a check." />
+          <m3:SegmentedButton SelectedIndex="{Bind Period}">
+            <m3:Segment Text="Day" />
+            <m3:Segment Text="Week" />
+            <m3:Segment Text="Month" />
+            <m3:Segment Text="Year" />
+          </m3:SegmentedButton>
+          <m3:SegmentedButton IsMultiSelect="True">
+            <m3:Segment Text="XS" />
+            <m3:Segment Text="S" IsSelected="True" />
+            <m3:Segment Text="M" IsSelected="True" />
+            <m3:Segment Text="L" />
+            <m3:Segment Text="XL" />
+          </m3:SegmentedButton>
+          <m3:SegmentedButton>
+            <m3:Segment Icon="DirectionsWalk" Text="Walk" />
+            <m3:Segment Icon="DirectionsBike" Text="Ride" />
+            <m3:Segment Icon="DirectionsCar" Text="Drive" />
+          </m3:SegmentedButton>
+          <m3:SegmentedButton IsEnabled="False">
+            <m3:Segment Text="Disabled" />
+            <m3:Segment Text="Segments" />
+          </m3:SegmentedButton>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+  </Grid>
+</UserControl>

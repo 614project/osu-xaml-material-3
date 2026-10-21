@@ -1,0 +1,78 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.NavigationPage" x:DataType="local:GalleryViewModel">
+  <Grid Padding="24" ColumnDefinitions="*,Auto" ColumnSpacing="24">
+
+    <StackPanel Spacing="24">
+      <m3:Card Variant="Outlined" Padding="0">
+        <StackPanel>
+          <m3:Text TypeStyle="TitleMedium" Text="Top app bars" Margin="16,16,16,8" />
+          <m3:TopAppBar Variant="CenterAligned" Title="Center-aligned" NavigationIcon="Menu">
+            <m3:IconButton Icon="AccountCircle" />
+          </m3:TopAppBar>
+          <m3:Divider />
+          <m3:TopAppBar Title="Small" NavigationIcon="ArrowBack" IsScrolled="True">
+            <m3:IconButton Icon="AttachFile" />
+            <m3:IconButton Icon="Event" />
+            <m3:IconButton Icon="MoreVert" />
+          </m3:TopAppBar>
+          <m3:Divider />
+          <m3:TopAppBar Variant="Medium" Title="Medium" NavigationIcon="ArrowBack">
+            <m3:IconButton Icon="AttachFile" />
+            <m3:IconButton Icon="MoreVert" />
+          </m3:TopAppBar>
+          <m3:Divider />
+          <m3:TopAppBar Variant="Large" Title="Large" NavigationIcon="ArrowBack">
+            <m3:IconButton Icon="AttachFile" />
+            <m3:IconButton Icon="MoreVert" />
+          </m3:TopAppBar>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined" Padding="0">
+        <StackPanel>
+          <m3:Text TypeStyle="TitleMedium" Text="Navigation bar" Margin="16,16,16,8" />
+          <m3:NavigationBar SelectedIndex="{Bind BarPage}">
+            <m3:NavigationBarItem Icon="Home" Text="Home" />
+            <m3:NavigationBarItem Icon="Search" Text="Search" />
+            <m3:NavigationBarItem Icon="Notifications" Text="Alerts" BadgeText="3" />
+            <m3:NavigationBarItem Icon="Person" Text="Profile" ShowBadge="True" />
+          </m3:NavigationBar>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined" Padding="0">
+        <StackPanel>
+          <m3:Text TypeStyle="TitleMedium" Text="Bottom app bar" Margin="16,16,16,8" />
+          <m3:BottomAppBar>
+            <m3:IconButton Icon="Check" />
+            <m3:IconButton Icon="Edit" />
+            <m3:IconButton Icon="Mic" />
+            <m3:IconButton Icon="Image" />
+            <m3:BottomAppBar.Fab>
+              <m3:Fab Icon="Add" />
+            </m3:BottomAppBar.Fab>
+          </m3:BottomAppBar>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+
+    <m3:Card Grid.Column="1" Variant="Outlined" Padding="0" VerticalAlignment="Top">
+      <StackPanel>
+        <m3:Text TypeStyle="TitleMedium" Text="Navigation drawer" Margin="16,16,16,0" />
+        <m3:NavigationDrawer SelectedIndex="{Bind DrawerPage}">
+          <m3:NavigationDrawerHeadline Text="Mail" />
+          <m3:NavigationDrawerItem Icon="Inbox" Text="Inbox" BadgeText="24" />
+          <m3:NavigationDrawerItem Icon="Send" Text="Outbox" />
+          <m3:NavigationDrawerItem Icon="Favorite" Text="Favourites" />
+          <m3:NavigationDrawerItem Icon="Delete" Text="Trash" />
+          <m3:Divider />
+          <m3:NavigationDrawerHeadline Text="Labels" />
+          <m3:NavigationDrawerItem Icon="Label" Text="Family" />
+          <m3:NavigationDrawerItem Icon="Label" Text="School" BadgeText="100+" />
+          <m3:NavigationDrawerItem Icon="Label" Text="Work" />
+        </m3:NavigationDrawer>
+      </StackPanel>
+    </m3:Card>
+  </Grid>
+</UserControl>

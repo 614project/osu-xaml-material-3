@@ -1,0 +1,3 @@
+[submodule "external/osu-xaml"]
+	path = external/osu-xaml
+	url = https://github.com/614project/osu-xaml.git

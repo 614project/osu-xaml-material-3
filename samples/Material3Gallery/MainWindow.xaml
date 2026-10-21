@@ -1,0 +1,64 @@
+<Window xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+        xmlns:local="clr-namespace:Material3Gallery"
+        x:Class="Material3Gallery.MainWindow" x:DataType="local:GalleryViewModel" Title="Material 3 for osu-xaml">
+  <m3:ThemeScope>
+    <m3:SnackbarHost x:Name="snackbars">
+      <Grid ColumnDefinitions="Auto,*">
+
+        <m3:NavigationRail SelectedIndex="{Bind Page}" Alignment="Top">
+          <m3:NavigationRail.Header>
+            <m3:Fab Icon="Palette" FabSize="Regular" Color="Tertiary" Lowered="True" Click="{Bind ToggleDark}" PlainTooltip="Light or dark" />
+          </m3:NavigationRail.Header>
+          <m3:NavigationRailItem Icon="SmartButton" Text="Buttons" />
+          <m3:NavigationRailItem Icon="EditNote" Text="Inputs" />
+          <m3:NavigationRailItem Icon="Dashboard" Text="Containers" />
+          <m3:NavigationRailItem Icon="Explore" Text="Navigation" BadgeText="4" />
+          <m3:NavigationRailItem Icon="Notifications" Text="Feedback" ShowBadge="True" />
+          <m3:NavigationRailItem Icon="FormatPaint" Text="Theme" />
+        </m3:NavigationRail>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*">
+          <m3:TopAppBar x:Name="appBar" Title="{Bind PageTitle}">
+            <m3:IconButton Icon="DarkMode" SelectedIcon="LightMode" IsToggle="True" IsSelected="{Bind IsDark}" PlainTooltip="Dark theme" />
+            <m3:IconButton Icon="Palette" PlainTooltip="Seed colour">
+              <m3:IconButton.Menu>
+                <m3:Menu x:Name="seedMenu">
+                  <m3:MenuItem Text="Baseline" LeadingIcon="RestartAlt" />
+                  <m3:Divider />
+                  <m3:MenuItem Text="Purple" LeadingIcon="Circle" />
+                  <m3:MenuItem Text="Blue" LeadingIcon="Circle" />
+                  <m3:MenuItem Text="Green" LeadingIcon="Circle" />
+                  <m3:MenuItem Text="Red" LeadingIcon="Circle" />
+                  <m3:MenuItem Text="Orange" LeadingIcon="Circle" />
+                  <m3:MenuItem Text="Teal" LeadingIcon="Circle" />
+                </m3:Menu>
+              </m3:IconButton.Menu>
+            </m3:IconButton>
+            <m3:IconButton Icon="MoreVert" PlainTooltip="More">
+              <m3:IconButton.Menu>
+                <m3:Menu x:Name="variantMenu">
+                  <m3:MenuItem Text="Tonal spot" />
+                  <m3:MenuItem Text="Neutral" />
+                  <m3:MenuItem Text="Vibrant" />
+                  <m3:MenuItem Text="Expressive" />
+                  <m3:MenuItem Text="Monochrome" />
+                </m3:Menu>
+              </m3:IconButton.Menu>
+            </m3:IconButton>
+          </m3:TopAppBar>
+
+          <ScrollViewer x:Name="scroller" Grid.Row="1">
+            <Grid>
+              <local:ButtonsPage x:Name="buttonsPage" />
+              <local:InputsPage x:Name="inputsPage" />
+              <local:ContainersPage x:Name="containersPage" />
+              <local:NavigationPage x:Name="navigationPage" />
+              <local:FeedbackPage x:Name="feedbackPage" />
+              <local:ThemePage x:Name="themePage" />
+            </Grid>
+          </ScrollViewer>
+        </Grid>
+      </Grid>
+    </m3:SnackbarHost>
+  </m3:ThemeScope>
+</Window>

@@ -1,0 +1,102 @@
+<UserControl xmlns="osu-xaml" xmlns:x="osu-xaml:x" xmlns:m3="clr-namespace:OsuXaml.Material3"
+             xmlns:local="clr-namespace:Material3Gallery"
+             x:Class="Material3Gallery.FeedbackPage" x:DataType="local:GalleryViewModel">
+  <Grid Padding="24" ColumnDefinitions="*,*" ColumnSpacing="24">
+
+    <StackPanel Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Progress indicators" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Determinate ones follow a value; indeterminate ones loop while the length of the wait is unknown." />
+          <m3:LinearProgressIndicator Value="{Bind Progress}" />
+          <m3:LinearProgressIndicator IsIndeterminate="True" />
+          <StackPanel Orientation="Horizontal" Spacing="24">
+            <m3:CircularProgressIndicator Value="{Bind Progress}" />
+            <m3:CircularProgressIndicator IsIndeterminate="True" />
+            <m3:CircularProgressIndicator IsIndeterminate="True" Diameter="24" VerticalAlignment="Center" />
+          </StackPanel>
+          <m3:Slider Value="{Bind Progress}" Maximum="1" StepSize="0.01" ValueFormat="0%" />
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Dialogs" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Modal questions over a scrim. Enter picks the default action and Escape the cancel one." />
+          <WrapPanel Spacing="12">
+            <m3:FilledTonalButton Text="Basic" Click="OnBasicDialog" />
+            <m3:FilledTonalButton Icon="Delete" Text="With icon" Click="OnIconDialog" />
+            <m3:FilledTonalButton Icon="Tune" Text="With content" Click="OnContentDialog" />
+          </WrapPanel>
+          <m3:Text TypeStyle="LabelLarge" ColorRole="Primary" Text="{Bind Status, StringFormat='Result: {0}'}" />
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Snackbars" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Brief messages at the bottom of the window, one at a time, with an optional action." />
+          <WrapPanel Spacing="12">
+            <m3:OutlinedButton Text="Message" Click="OnSnackbar" />
+            <m3:OutlinedButton Text="With action" Click="OnSnackbarAction" />
+            <m3:OutlinedButton Text="Two lines, closable" Click="OnSnackbarLong" />
+          </WrapPanel>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1" Spacing="24">
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Tooltips" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="Hover the buttons. Plain tooltips label an icon; rich ones explain more." />
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <m3:IconButton Icon="Bookmark" PlainTooltip="Save to favourites" />
+            <m3:IconButton Icon="Share" PlainTooltip="Share" />
+            <m3:IconButton Icon="Info" Variant="FilledTonal">
+              <ToolTipService.ToolTip>
+                <m3:RichTooltip Subhead="Rich tooltip"
+                                SupportingText="Rich tooltips bring attention to a feature, with a subhead and a longer explanation that wraps." />
+              </ToolTipService.ToolTip>
+            </m3:IconButton>
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+
+      <m3:Card Variant="Outlined">
+        <StackPanel Spacing="16">
+          <m3:Text TypeStyle="TitleMedium" Text="Menus" />
+          <m3:Text ColorRole="OnSurfaceVariant" TextWrapping="Wrap"
+                   Text="A list of choices on a temporary surface, opened from a button." />
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <m3:OutlinedButton Text="Edit" Icon="ExpandMore" TrailingIcon="True">
+              <m3:OutlinedButton.Menu>
+                <m3:Menu ItemClicked="OnEditItem">
+                  <m3:MenuItem Text="Cut" LeadingIcon="ContentCut" TrailingText="Ctrl+X" />
+                  <m3:MenuItem Text="Copy" LeadingIcon="ContentCopy" TrailingText="Ctrl+C" />
+                  <m3:MenuItem Text="Paste" LeadingIcon="ContentPaste" TrailingText="Ctrl+V" />
+                  <m3:Divider />
+                  <m3:MenuItem Text="Select all" LeadingIcon="SelectAll" />
+                  <m3:MenuItem Text="Undo" LeadingIcon="Undo" IsEnabled="False" />
+                </m3:Menu>
+              </m3:OutlinedButton.Menu>
+            </m3:OutlinedButton>
+            <m3:IconButton Icon="MoreVert">
+              <m3:IconButton.Menu>
+                <m3:Menu x:Name="sortMenu">
+                  <m3:MenuItem Text="Name" IsSelected="True" />
+                  <m3:MenuItem Text="Date modified" />
+                  <m3:MenuItem Text="Size" />
+                </m3:Menu>
+              </m3:IconButton.Menu>
+            </m3:IconButton>
+          </StackPanel>
+        </StackPanel>
+      </m3:Card>
+    </StackPanel>
+  </Grid>
+</UserControl>

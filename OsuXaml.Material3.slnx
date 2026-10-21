@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/Material3Gallery/Material3Gallery.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/OsuXaml.Material3/OsuXaml.Material3.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OsuXaml.Material3.Tests/OsuXaml.Material3.Tests.csproj" />
+  </Folder>
+  <Folder Name="/osu-xaml/">
+    <Project Path="external/osu-xaml/src/OsuXaml/OsuXaml.csproj" />
+    <Project Path="external/osu-xaml/src/OsuXaml.Generator/OsuXaml.Generator.csproj" />
+    <Project Path="external/osu-xaml/src/OsuXaml.Schema/OsuXaml.Schema.csproj" />
+  </Folder>
+</Solution>
